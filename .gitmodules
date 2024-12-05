@@ -13,3 +13,9 @@
 [submodule "thirdparty/rocksdb"]
 	path = thirdparty/rocksdb
 	url = https://github.com/facebook/rocksdb.git
+[submodule "thirdparty/libpqxx"]
+	path = thirdparty/libpqxx
+	url = https://github.com/jtv/libpqxx
+[submodule "thirdparty/tomlplusplus"]
+	path = thirdparty/tomlplusplus
+	url = https://github.com/marzer/tomlplusplus
