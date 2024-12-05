@@ -91,6 +91,15 @@ set(SOURCE_FILES
 
 file(GLOB PROTO_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/proto/*.proto")
 
+
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(LIBPQXX REQUIRED libpqxx)
+
+
+include_directories(${LIBPQXX_INCLUDE_DIRS})
+link_directories(${LIBPQXX_LIBRARY_DIRS})
+
+
 set(LIB_LIST
     ${Boost_LIBRARIES}
     ${Protobuf_LIBRARIES}
@@ -101,10 +110,13 @@ set(LIB_LIST
     eigen
     rocksdb
     drogon
+    ${LIBPQXX_LIBRARIES}
 )
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/rocksdb/include")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/tomlplusplus/include")
+
 target_include_directories(fasttext-static SYSTEM PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/fasttext/src")
 target_include_directories(OpenNMTTokenizer SYSTEM PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/onmt_tokenizer/include")
 

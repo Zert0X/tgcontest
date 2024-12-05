@@ -96,6 +96,10 @@ int main(int argc, char** argv) {
             inputFormat = tg::IF_JSONL;
             fileNames.push_back(input);
             LOG_DEBUG("JSONL file as input");
+        } else if (boost::algorithm::ends_with(input, ".toml")) {
+            inputFormat = tg::IF_DB;
+            fileNames.push_back(input);
+            LOG_DEBUG("DATABASE CONNECTION as input");
         } else {
             inputFormat = tg::IF_HTML;
             int nDocs = vm["ndocs"].as<int>();

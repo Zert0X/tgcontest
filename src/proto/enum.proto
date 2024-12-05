@@ -57,4 +57,5 @@ enum EInputFormat {
     IF_HTML = 1;
     IF_JSON = 2;
     IF_JSONL = 3;
+    IF_DB = 4;
 }
